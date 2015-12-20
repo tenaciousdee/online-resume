@@ -2,19 +2,19 @@ class ResumesController < ApplicationController
 
 
   def index
-    @resumes = Resume.all
+    # @resumes = Resume.all
   end
 
   def show
-    @resume = Resume.find_by(id: params[:id])
+    # @resume = Resume.find_by(id: params[:id])
   end
 
   def create
     #link to student portal
 
-    @resume = Resume.create(
-    id: params[:id]
-    )
+    # @resume = Resume.create(
+    # id: params[:id]
+    # )
   end
 
   def new
@@ -29,8 +29,8 @@ class ResumesController < ApplicationController
   end
 
   def destroy
-    resume = Resume.find_by(id: params[:id])
-    resume.delete
+    # resume = Resume.find_by(id: params[:id])
+    # resume.delete
 
     #link to student portal
   end
