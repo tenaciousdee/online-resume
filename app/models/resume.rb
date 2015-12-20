@@ -14,6 +14,8 @@ class Resume
     @resume_url = input_options["resume_url"]
     @github_url = input_options["github_url"]
     @photo = input_options["photo"]
+    @experience = []
+    @capstone = []
   end
 
   def full_name
@@ -26,7 +28,7 @@ class Resume
 
   def self.all
     # resume_options_hashes = Unirest.get().body
-    resume_options_hashes = [
+    resume_options_hash = [
       {
         id: 1,
         first_name: "John",
@@ -134,11 +136,11 @@ class Resume
         }
       }
     ]
-    resumes = []
-    resume_options_hashes.each do |resumes_options_hash|
-      resumes << Resume.new(resumes_options_hash)
-    end
-    resumes
+    # @resumes = []
+    # resume_options_hash.each do |resume_options|
+    #   @resumes  Resume.new(resume_options)
+    # end
+    return resume_options_hash
   end
 
   def self.find_by(options)
