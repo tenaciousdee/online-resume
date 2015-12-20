@@ -2,11 +2,11 @@ class ResumesController < ApplicationController
 
 
   def index
-    # @resumes = Resume.all
+    @resumes = Resume.all
   end
 
   def show
-    # @resume = Resume.find_by(id: params[:id])
+    @resume = Resume.find_by(id: params[:id])
   end
 
   def create
