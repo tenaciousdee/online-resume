@@ -6,7 +6,7 @@ class ResumesController < ApplicationController
   end
 
   def show
-    @resume = Unirest.get("http://172.28.113.208:3000/students.json").body
+    @resume = Unirest.get("http://172.28.113.208:3000/students/#{params[:id]}.json").body
   end
 
   def create

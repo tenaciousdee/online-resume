@@ -2,7 +2,7 @@
         <div class="container">                       
             <!-- <img class="profile-image img-responsive pull-left" src="#{@resume.photo}"  alt="#{@resume.full_name" /> -->
             <div class="profile-content pull-left">
-                <h1 class="name"><%= @resume[0]["first_name"] %> <%= @resume[0]["last_name"] %></h1>
+                <h1 class="name"><%= @resume["first_name"] %> <%= @resume["last_name"] %></h1>
                 <h2 class="desc">Web App Developer</h2>   
                 <ul class="social list-inline">
                     <li><a href="@resume.twitter_handle"><i class="fa fa-twitter"></i></a></li>
@@ -10,7 +10,7 @@
                     <li><a href="@resume.github_url"><i class="fa fa-github-alt"></i></a></li>                 
                 </ul> 
             </div><!--//profile-->
-            <a class="btn btn-cta-primary pull-right" href="#{@resume.email}" target="_blank"><i class="fa fa-paper-plane"></i> Contact Me</a>              
+            <a class="btn btn-cta-primary pull-right" href="#" target="_blank"><i class="fa fa-paper-plane"></i> Contact Me</a>              
         </div><!--//container-->
     </header><!--//header-->
     <div class="container sections-wrapper">
@@ -20,7 +20,7 @@
                     <div class="section-inner">
                         <h2 class="heading">About Me</h2>
                         <div class="content">
-                            <p><%= @resume[0]["short_bio"] %></p>
+                            <p><%= @resume["short_bio"] %></p>
                          
                         </div><!--//content-->
                     </div><!--//section-inner-->                 
@@ -32,11 +32,10 @@
                         <div class="content">    
                                                
                             <div class="item featured text-center">
-                                <h3 class="title"><a href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-for-products-velocity/" target="_blank">KickStarter - Velocity</a></h3>
-                                <p class="summary">A responsive Bootstrap template designed for digital products</p>
+                                <h3 class="title"><%= @resume["capstones"]["name"] %></h3>
                                 <div class="featured-image">
                                     <a href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-for-products-velocity/" target="_blank">
-                                    <img class="img-responsive project-image" src="assets/images/projects/project-featured.png" alt="project name" />
+                                    <!-- <img class="img-responsive project-image" src="assets/images/projects/project-featured.png" alt="project name" /> -->
                                     </a>
                                     <div class="ribbon">
                                         <div class="text">Awesome</div>
@@ -44,8 +43,7 @@
                                     </div>
                                     
                                 <div class="desc text-left">                                    
-                                    <p>You can promote your main project here. Suspendisse in tellus dolor. Vivamus a tortor eu turpis pharetra consequat quis non metus. Aliquam aliquam, orci eu suscipit pellentesque, mauris dui tincidunt enim, eget iaculis ante dolor non turpis.</p>
-                                    <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. At vero eos et accusamus et iusto odio dignissimos ducimus.</p>
+                                    <p><%= @resume["capstones"]["description"] %></p>
                                 </div><!--//desc-->    
                             
                         </div><!--//content-->  
@@ -57,17 +55,7 @@
                         <h2 class="heading">Work Experience</h2>
                         <div class="content">
                             <div class="item">
-                                <h3 class="title">Co-Founder & Lead Developer - <span class="place"><a href="#">Startup Hub</a></span> <span class="year">(2014 - Present)</span></h3>
-                                <p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.</p>
-                            </div><!--//item-->
-                            <div class="item">
-                                <h3 class="title">Software Engineer - <span class="place"><a href="#">Google</a></span> <span class="year">(2013 - 2014)</span></h3>
-                                <p>Vivamus a tortor eu turpis pharetra consequat quis non metus. Aliquam aliquam, orci eu suscipit pellentesque, mauris dui tincidunt enim. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.</p>
-                            </div><!--//item-->
-                            
-                            <div class="item">
-                                <h3 class="title">Software Engineer - <span class="place"><a href="#">eBay</a></span> <span class="year">(2012 - 2013)</span></h3>
-                                <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+                                <h3 class="title"><%= @resume["experiences"]["job_title"] %> - <span class="place"><%= @resume["experiences"]["company"] %></span> <span class="year">(<%= @resume["experiences"]["start_date"] %> - <%= @resume["experiences"]["end_date"] %>)</span></h3>
                             </div><!--//item-->
                             
                         </div><!--//content-->  
@@ -77,6 +65,7 @@
                     <div class="section-inner">
                         <h2 class="heading">Twitter Feed</h2>                     
                         <div id="ghfeed" class="ghfeed">
+                        <p><%= @resume["twitter"] %></p>
                         </div><!--//ghfeed-->
                         
                     </div><!--//secton-inner-->
@@ -89,9 +78,10 @@
                         <div class="content">
                             <ul class="list-unstyled">
                                 <li><i class="fa fa-map-marker"></i><span class="sr-only">Location:</span>Chicago, IL</li>
-                                <li><i class="fa fa-envelope-o"></i><span class="sr-only">Email:</span><a href="#">@resume.email</a></li>                                
-                                <li><i class="fa fa-phone"></i><span class="sr-only">Email:</span><a href="#">@resume.email</a></li>
-                                <li><i class="fa fa-link"></i><span class="sr-only">Website:</span><a href="#">@resume.personal_blog</a></li>
+                                <li><i class="fa fa-envelope-o"></i><span class="sr-only"></span><a href="#">Email: <%= @resume["email"] %></a></li>                                
+                                <li><i class="fa fa-link"></i><span class="sr-only"></span><a href="<%= @resume["blog_url"] %>">Blog</a></li>
+                                <li><i class="fa fa-link"></i><span class="sr-only"></span><a href="<%= @resume["linkedin_url"] %>">LinkedIn</a></li>
+
                             </ul>
                         </div><!--//content-->  
                     </div><!--//section-inner-->                 
@@ -101,39 +91,13 @@
                     <div class="section-inner">
                         <h2 class="heading">Skills</h2>
                         <div class="content">
-                            <p class="intro">
-                                Intro about your skills goes here. Keep the list lean and only show your primary skillset. You can always provide a link to your Linkedin or Coderwall profile so people can get more info there.</p>
                             
                             <div class="skillset">
                                
                                 <div class="item">
-                                    <h3 class="level-title">Python &amp; Django<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to add more info...">Expert</span></h3>
+                                    <h3 class="level-title"><%= @resume["skills"]["skill_name"] %><span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to add more info...">Expert</span></h3>
                                     <div class="level-bar">
                                         <div class="level-bar-inner" data-level="96%">
-                                        </div>                                      
-                                    </div><!--//level-bar-->                                 
-                                </div><!--//item-->
-                                
-                                <div class="item">
-                                    <h3 class="level-title">Javascript &amp; jQuery<span class="level-label">Expert</span></h3>
-                                    <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="96%">
-                                        </div>                                      
-                                    </div><!--//level-bar-->                                 
-                                </div><!--//item-->
-                                
-                                <div class="item">
-                                    <h3 class="level-title">HTML5, CSS3, SASS &amp; LESS<span class="level-label">Expert</span></h3>
-                                    <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="96%">
-                                        </div>                                      
-                                    </div><!--//level-bar-->                                 
-                                </div><!--//item-->
-                                
-                                <div class="item">
-                                    <h3 class="level-title">Ruby on Rails<span class="level-label">Pro</span></h3>
-                                    <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="85%">
                                         </div>                                      
                                     </div><!--//level-bar-->                                 
                                 </div><!--//item-->
@@ -148,12 +112,8 @@
                         <h2 class="heading">Education</h2>
                         <div class="content">
                             <div class="item">                      
-                                <h3 class="title"><i class="fa fa-graduation-cap"></i> MSc Psychology and Computer Science</h3>
-                                <h4 class="university">University College London <span class="year">(2011-2012)</span></h4>
-                            </div><!--//item-->
-                            <div class="item">
-                                <h3 class="title"><i class="fa fa-graduation-cap"></i> BSc Computer Science</h3>
-                                <h4 class="university">University of Bristol <span class="year">(2008-2011)</span></h4>
+                                <h3 class="title"><i class="fa fa-graduation-cap"></i><%= @resume["educations"]["degree"] %></h3>
+                                <h4 class="university"><%= @resume["educations"]["school"] %> <span class="year">(<%= @resume["educations"]["start_date"] %>-<%= @resume["educations"]["end_date"] %>)</span></h4>
                             </div><!--//item-->
                         </div><!--//content-->
                     </div><!--//section-inner-->
