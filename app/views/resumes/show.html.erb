@@ -1,3 +1,18 @@
+    <header class="header">
+        <div class="container">                       
+            <!-- <img class="profile-image img-responsive pull-left" src="#{@resume.photo}"  alt="#{@resume.full_name" /> -->
+            <div class="profile-content pull-left">
+                <h1 class="name"><%= @resume[0]["first_name"] %> <%= @resume[0]["last_name"] %></h1>
+                <h2 class="desc">Web App Developer</h2>   
+                <ul class="social list-inline">
+                    <li><a href="@resume.twitter_handle"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="@resume.linkedin_url"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="@resume.github_url"><i class="fa fa-github-alt"></i></a></li>                 
+                </ul> 
+            </div><!--//profile-->
+            <a class="btn btn-cta-primary pull-right" href="#{@resume.email}" target="_blank"><i class="fa fa-paper-plane"></i> Contact Me</a>              
+        </div><!--//container-->
+    </header><!--//header-->
     <div class="container sections-wrapper">
         <div class="row">
             <div class="primary col-md-8 col-sm-12 col-xs-12">
@@ -5,7 +20,7 @@
                     <div class="section-inner">
                         <h2 class="heading">About Me</h2>
                         <div class="content">
-                            <p>@resume.short_bio</p>
+                            <p><%= @resume[0]["short_bio"] %></p>
                          
                         </div><!--//content-->
                     </div><!--//section-inner-->                 

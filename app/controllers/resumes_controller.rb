@@ -2,36 +2,25 @@ class ResumesController < ApplicationController
 
 
   def index
-    @resumes = Resume.all
+    @resumes = Unirest.get("http://172.28.113.208:3000/students.json").body
   end
 
   def show
-    @resume = Resume.find_by(id: params[:id])
+    @resume = Unirest.get("http://172.28.113.208:3000/students.json").body
   end
 
   def create
-    #link to student portal
-
-    # @resume = Resume.create(
-    # id: params[:id]
-    # )
   end
 
   def new
   end
 
   def edit
-    #link to student portal
   end
 
   def update
-    #link to student portal
   end
 
   def destroy
-    # resume = Resume.find_by(id: params[:id])
-    # resume.delete
-
-    #link to student portal
   end
 end
