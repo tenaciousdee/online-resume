@@ -2,8 +2,8 @@
     <% @resumes.each do |resume| %>
       <div class = "col-md-4 index">
         <div class = "well">
-            <h3>resume: <a href = "/resumes/<%= resume.id %>" ><%= resume.full_name %> </a></h3>
-          <p>Phone number: <%= resume.bio %></p>
+            <h3><a href = "/resumes/<%= resume.id %>"><%= resume.full_name %> </a></h3>
+          <p><%= resume.bio %></p>
         </div>
       </div>
     <% end %>
