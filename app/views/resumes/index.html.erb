@@ -1,15 +1,7 @@
-  <div class = "row">
-    <% @resumes.each do |resume| %>
-      <div class = "col-md-4 index">
-        <div class = "well">
-            <h3><a href = "/resumes/<%= resume.id %>"><%= resume.full_name %> </a></h3>
-          <p><%= resume.bio %></p>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
-</div>
+<h1>Resumes</h1>
+<% @resumes.each do |resume| %>
+<p>Student: <%= resume["first_name"] %></p>
+<% end %>
 
 
 
